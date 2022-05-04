@@ -11,10 +11,10 @@ public class TaskTwo {
         int days = 30;
         int gramInOneKg = 1000;
 
-        int resultCatsMonthlyFood = countMonthlyFood(onePortion, feedPerDay, days) * cats / gramInOneKg;
+        int resultCatsMonthlyFood = countMonthlyFood(onePortion, feedPerDay, days, cats, gramInOneKg);
         System.out.println("Total monthly cats food = " + resultCatsMonthlyFood + " Kg");
 
-        int resultDogsMonthlyFood = countMonthlyFood(onePortion, feedPerDay, days) * dogs / gramInOneKg;
+        int resultDogsMonthlyFood = countMonthlyFood(onePortion, feedPerDay, days, dogs, gramInOneKg);
         System.out.println("Total monthly dogs food = " + resultDogsMonthlyFood + " Kg");
 
         int monthlyTotalCost = totalCost(feedPerDay, days, cats, cost) + totalCost(feedPerDay, days, dogs, cost);
@@ -22,9 +22,9 @@ public class TaskTwo {
 
     }
 
-    public static int countMonthlyFood(int portion, int feedPerDay, int days) {
+    public static int countMonthlyFood(int portion, int feedPerDay, int days, int animals, int gramInOneKg) {
 
-        return portion * feedPerDay * days;
+        return (portion * feedPerDay * days * animals) / gramInOneKg;
     }
 
     public static int totalCost(int feedPerDay, int days, int animals, int cost) {
