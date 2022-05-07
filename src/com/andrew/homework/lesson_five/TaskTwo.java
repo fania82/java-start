@@ -33,15 +33,15 @@ public class TaskTwo {
 
         switch (typeOfBaggage) {
             case 1:
-                checkHorizontalBaggage(baggageHeight, baggageLength, baggageDepth, horizontalHeight, horizontalLength, horizontalDepth);
+                checkBaggage(baggageHeight, baggageLength, baggageDepth, horizontalHeight, horizontalLength, horizontalDepth);
                 break;
             case 2:
-                checkHorizontalBaggage(baggageHeight, baggageLength, baggageDepth, verticalHeight, verticalLength, verticalDepth);
+                checkBaggage(baggageHeight, baggageLength, baggageDepth, verticalHeight, verticalLength, verticalDepth);
                 break;
         }
     }
 
-    public static void checkHorizontalBaggage(int baggageHeight, int baggageLength, int baggageDepth, int height, int length, int depth) {
+    public static void checkBaggage(int baggageHeight, int baggageLength, int baggageDepth, int height, int length, int depth) {
         if (baggageHeight > height && baggageLength > length && baggageDepth > depth) {
             System.out.println("Baggage isn't confirmed, height, length and depth are more than allowed");
         } else if (baggageHeight > height && baggageLength > length) {
