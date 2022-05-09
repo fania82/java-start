@@ -1,10 +1,10 @@
-package com.andrew.homework.lesson_six;
+package com.andrew.homework.lesson.six;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TaskTwo {
+public class Calculator {
 
     public static void main(String[] args) throws IOException {
 
@@ -13,27 +13,36 @@ public class TaskTwo {
         System.out.println("input any number (use dot as separator): ");
         float firstNumber = Float.parseFloat(reader.readLine());
 
-        System.out.println("input any operation from list: *, /, -, + ");
-        String name = reader.readLine();
+        System.out.println("input any operator from list: *, /, -, + ");
+        String operator = reader.readLine();
 
         System.out.println("input any number(use dot as separator): ");
         float secondNumber = Float.parseFloat(reader.readLine());
 
-        if (name.equals("+")) {
-            float sum = useSumOperator(firstNumber, secondNumber);
-            System.out.println("The result is: " + sum);
-        } else if (name.equals("-")) {
-            float deduction = useDeductionOperator(firstNumber, secondNumber);
-            System.out.println("The result is: " + deduction);
-        } else if (name.equals("*")) {
-            float multiply = useMultiplyOperator(firstNumber, secondNumber);
-            System.out.println("The result is: " + multiply);
-        } else if (name.equals("/")) {
-            float divide = useDivideOperator(firstNumber, secondNumber);
-            System.out.println("The result is: " + divide);
 
+        switch (operator) {
+            case "+":
+                float sum = useSumOperator(firstNumber, secondNumber);
+                printResult(sum);
+                break;
+            case "-":
+                float deduction = useDeductionOperator(firstNumber, secondNumber);
+                printResult(deduction);
+                break;
+            case "*":
+                float multiply = useMultiplyOperator(firstNumber, secondNumber);
+                printResult(multiply);
+                break;
+            case "/":
+                float divide = useDivideOperator(firstNumber, secondNumber);
+                printResult(divide);
+                break;
+            default:
+                System.out.println("Not correct operator");
 
         }
+
+
     }
 
     public static float useSumOperator(float additionOne, float additionTwo) {
@@ -50,6 +59,10 @@ public class TaskTwo {
 
     public static float useDivideOperator(float dividerOne, float dividerTwo) {
         return dividerOne / dividerTwo;
+    }
+
+    public static void printResult(float operator) {
+        System.out.println("The result is: " + operator);
     }
 
 

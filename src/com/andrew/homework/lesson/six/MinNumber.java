@@ -1,6 +1,6 @@
-package com.andrew.homework.lesson_six;
+package com.andrew.homework.lesson.six;
 
-public class TaskOne {
+public class MinNumber {
 
     public static void main(String[] args) {
 
