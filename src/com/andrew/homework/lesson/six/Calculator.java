@@ -10,13 +10,13 @@ public class Calculator {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("input any number (use dot as separator): ");
+        inputData("input any number (use dot as separator): ");
         float firstNumber = Float.parseFloat(reader.readLine());
 
-        System.out.println("input any operator from list: *, /, -, + ");
+        inputData("input any operator from list: *, /, -, + ");
         String operator = reader.readLine();
 
-        System.out.println("input any number(use dot as separator): ");
+        inputData("input any number(use dot as separator): ");
         float secondNumber = Float.parseFloat(reader.readLine());
 
 
@@ -63,6 +63,10 @@ public class Calculator {
 
     public static void printResult(float operator) {
         System.out.println("The result is: " + operator);
+    }
+
+    public static void inputData(String str) {
+        System.out.println(str);
     }
 
 
