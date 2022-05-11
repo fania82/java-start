@@ -1,10 +1,10 @@
-package com.andrew.homework.lesson_five;
+package com.andrew.homework.lesson.five;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TaskTwo {
+public class BaggageApproving {
 
     public static void main(String[] args) throws IOException {
 
@@ -18,8 +18,8 @@ public class TaskTwo {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("input type of your baggage (1 - horizontal or 2 - vertical): ");
-        int typeOfBaggage = Integer.parseInt(reader.readLine());
+        System.out.println("Do You have horizontal bag (type true if yes and false if not): ");
+        boolean typeOfBaggage = Boolean.parseBoolean(reader.readLine());
 
         System.out.println("input height of Your bag (in cm): ");
         int baggageHeight = Integer.parseInt(reader.readLine());
@@ -30,15 +30,13 @@ public class TaskTwo {
         System.out.println("input depth of Your bag (in cm): ");
         int baggageDepth = Integer.parseInt(reader.readLine());
 
-
-        switch (typeOfBaggage) {
-            case 1:
-                checkBaggage(baggageHeight, baggageLength, baggageDepth, horizontalHeight, horizontalLength, horizontalDepth);
-                break;
-            case 2:
-                checkBaggage(baggageHeight, baggageLength, baggageDepth, verticalHeight, verticalLength, verticalDepth);
-                break;
+        if (typeOfBaggage) {
+            checkBaggage(baggageHeight, baggageLength, baggageDepth, horizontalHeight, horizontalLength, horizontalDepth);
+        } else {
+            checkBaggage(baggageHeight, baggageLength, baggageDepth, verticalHeight, verticalLength, verticalDepth);
         }
+
+
     }
 
     public static void checkBaggage(int baggageHeight, int baggageLength, int baggageDepth, int height, int length, int depth) {
