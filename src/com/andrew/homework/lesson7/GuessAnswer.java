@@ -8,11 +8,14 @@ public class GuessAnswer {
 
     public static void main(String[] args) throws IOException {
 
+        int maximum = 10;
+        int minimum = 0;
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int randomNumber = getRandomInteger(10, 0);
+        int randomNumber = getRandomInteger(maximum, minimum);
 
-        printString("Try to guess number. Input any number from 0 to 10");
+        printString("Try to guess number. Input any number from " + minimum + " to " + maximum);
         int input = Integer.parseInt(reader.readLine());
 
 

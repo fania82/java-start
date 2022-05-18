@@ -13,39 +13,40 @@ public class CarsWashingWhile {
         printMessage("Enter how many cars will be washed");
         int cars = Integer.parseInt(reader.readLine());
 
-        int i = 0;
+        int i = 1;
 
         while (i <= cars) {
-            if (cars != 0) {
-                applySoapForCars("car " + cars + " is soaping");
-                washCars("car " + cars + " is washing");
-                dryUpCars("car " + cars + " is drying up");
-                cars--;
-            }
-            i--;
-
+            printMessage("number of car: " + i);
+            Thread.sleep(2500);
+            applySoapForCars();
+            washCars();
+            dryUpCars();
+            i++;
         }
-        System.out.println("All cars are clean!");
+        printMessage("All cars are clean!");
 
     }
 
-    public static void applySoapForCars(String str) throws InterruptedException {
-        printMessage(str);
+
+    public static void applySoapForCars() throws InterruptedException {
+        printMessage("car is soaping");
         Thread.sleep(2500);
 
     }
 
-    public static void washCars(String str) throws InterruptedException {
-        printMessage(str);
+    public static void washCars() throws InterruptedException {
+        printMessage("car is washing");
         Thread.sleep(2500);
 
     }
 
-    public static void dryUpCars(String str) throws InterruptedException {
-        printMessage(str);
+    public static void dryUpCars() throws InterruptedException {
+        printMessage("car is drying up");
         Thread.sleep(2500);
 
     }
+
+
     public static void printMessage(String str) {
         System.out.println(str);
     }
