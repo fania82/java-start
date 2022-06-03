@@ -1,57 +1,58 @@
 package com.andrew.homework.lesson10;
 
-import com.andrew.homework.methods.Methods;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Matrix {
     public static BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
 
-        printMessage("Input how many lows will be in array: ");
-        int matrixSide = Integer.parseInt(READER.readLine());
-        int[][] arrayWithNegativeNumbers = new int[matrixSide][matrixSide];
 
-        fillArray(arrayWithNegativeNumbers);
-        System.out.println("Original matrix is: ");
-        printArray(matrixSide, arrayWithNegativeNumbers);
+        printMessage("Input how many rows will be in array: ");
+        int rows = Integer.parseInt(READER.readLine());
+        printMessage("Input how many columns will be in array: ");
+        int columns = Integer.parseInt(READER.readLine());
+        int[][] originMatrix = new int[rows][columns];
+        int[][] transpondeMatrix = new int[columns][rows];
 
-        System.out.println("Transported matrix is: ");
+        fillArray(originMatrix);
+        printMessage("Original matrix is: ");
+        printArray(originMatrix);
 
-        changeMatrix(matrixSide, arrayWithNegativeNumbers);
-        printArray(matrixSide, arrayWithNegativeNumbers);
+        printMessage("Transported matrix is: ");
+
+        changeMatrix(originMatrix, transpondeMatrix);
+        printArray(transpondeMatrix);
 
     }
 
-    private static void changeMatrix(int rows, int[][] arrayWithNegativeNumbers) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = i + 1; j < rows; j++) {
-                int temp = arrayWithNegativeNumbers[i][j];
-                arrayWithNegativeNumbers[i][j] = arrayWithNegativeNumbers[j][i];
-                arrayWithNegativeNumbers[j][i] = temp;
+    private static void changeMatrix(int[][] array, int[][] array1) {
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array1[i].length; j++) {
+                array1[i][j] = array[j][i];
 
             }
         }
     }
 
-    private static void printArray(int rows, int[][] arrayWithNegativeNumbers) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < rows; j++) {
-                System.out.print(arrayWithNegativeNumbers[i][j]);
+    private static void printArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j]);
             }
             System.out.println();
         }
     }
 
-    private static void fillArray(int[][] arrayWithNegativeNumbers) throws IOException {
-        for (int i = 0; i < arrayWithNegativeNumbers.length; i++) {
+    private static void fillArray(int[][] array) throws IOException {
+        for (int i = 0; i < array.length; i++) {
 
-            for (int j = 0; j < arrayWithNegativeNumbers[i].length; j++) {
+            for (int j = 0; j < array[i].length; j++) {
                 printMessage("Input matrix row " + i + " element no: " + j + " : ");
-                arrayWithNegativeNumbers[i][j] = Integer.parseInt(READER.readLine());
+                array[i][j] = Integer.parseInt(READER.readLine());
             }
         }
     }
@@ -61,3 +62,4 @@ public class Matrix {
     }
 
 }
+
