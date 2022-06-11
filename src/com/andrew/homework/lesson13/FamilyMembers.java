@@ -4,29 +4,24 @@ public class FamilyMembers {
 
     String name;
     int age;
-    boolean father;
-    boolean mother;
-    boolean child;
+    public FamilyMembers father;
+    public FamilyMembers mother;
 
-    public FamilyMembers(String name, int age, boolean father, boolean mother) {
+    public FamilyMembers(String name, int age,FamilyMembers father, FamilyMembers mother) {
         this.name = name;
         this.age = age;
         this.father = father;
         this.mother = mother;
-
     }
-    public FamilyMembers(String name, int age, boolean father, boolean mother, boolean child) {
-        this.name = name;
-        this.age = age;
-        this.father = father;
-        this.mother = mother;
-        this.child = child;
+
+    public FamilyMembers() {
     }
 
     public String toString() {
-        return "Person {" + this.name + ", " + this.age + " y.o, "
-                + "Father is: " + (this.father? "Present" : "Not present") + ", " + "Mother is: "
-                + (this.mother? "Present" : "Not present") + ", " + "Child is: " + (this.child? "Present" : "Not present") + '}';
-    }
+        String fatherDescripton = this.father !=null? "Father is: " + father : "No father";
+        String motherDescripton = this.mother !=null? "Mother is: " + mother : "No mother";
 
+        return "Person {" + this.name + ", " + this.age + " y.o, "
+                + fatherDescripton + ", " + motherDescripton + '}';
+    }
 }
