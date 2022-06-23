@@ -1,27 +1,15 @@
 package com.andrew.homework.lesson15.temperatureconverter;
 
-public class CelsiusTemperature extends Temperature implements Convertable {
+public class CelsiusTemperature implements Convertable {
 
     @Override
-    public void convert() {
-        if(typeOfNewTemperature.equals("Fahrenheit")) {
-            System.out.println("Temperature in Fahrenheit is: " + convertCelsiusToFahrenheit(convertedTemperature) + " Degrees");
-        } else if(typeOfNewTemperature.equals("Kalvin")) {
-            System.out.println("Temperature in Kalvins is: " + convertCelsiusToKalvin(convertedTemperature) + " Degrees");
+    public float convert(TemperatureType type, float convertedTemperature) {
+        if (type.equals(TemperatureType.FAHRENHEIT)) {
+            return convertedTemperature * 1.8f + 32;
+        } else if (type.equals(TemperatureType.KELVIN)) {
+            return convertedTemperature + 273.15f;
         } else {
-            System.out.println("This type of temperature isn't provided");
+            return convertedTemperature;
         }
-    }
-
-    public CelsiusTemperature(String typeOfNewTemperature, float convertedTemperature) {
-        super(typeOfNewTemperature, convertedTemperature);
-    }
-
-    public float convertCelsiusToFahrenheit(float convertedTemperature) {
-        return (convertedTemperature * 1.8f) + 32;
-    }
-
-    public float convertCelsiusToKalvin(float convertedTemperature) {
-        return convertedTemperature + 273.15f;
     }
 }
